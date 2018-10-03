@@ -8,6 +8,7 @@ import { CollectionsComponent } from './collections/collections.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { MoviesdbService } from './moviesdb.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MoviesdbService } from './moviesdb.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [MoviesdbService],
   bootstrap: [AppComponent]
