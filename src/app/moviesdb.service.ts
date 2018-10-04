@@ -18,8 +18,9 @@ export class MoviesdbService {
     return this.http.get("https://api.themoviedb.org/3/movie/upcoming?api_key=280752d0569c7d0c2dc3a72689118806&language=en-US&page=1");
   }
 
-  getSearch()
+  getSearch(title)
   {
-    return this.http.get("https://api.themoviedb.org/3/search/movie?api_key=280752d0569c7d0c2dc3a72689118806")
+    // console.log("asgdjashdghadjahjdsa"+title);
+    return this.http.get("https://api.themoviedb.org/3/search/movie?api_key=280752d0569c7d0c2dc3a72689118806&query="+title);
   }
 }
