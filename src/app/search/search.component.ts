@@ -18,19 +18,18 @@ export class SearchComponent implements OnInit {
  //Search : NavBarComponent[];
 Search : any;
 SearchResult : Array<any>;
-
+title:string;
   constructor(
     private route: ActivatedRoute,
     private moviesdbService: MoviesdbService,
    // private searchService : SearchService
     ) { }
 
-  @Input() search : NavBarComponent;
-
-  
-
   ngOnInit() {
-    this.moviesdbService.getSearch(this.search.movie).subscribe(
+    this.route.queryParams.subscribe((data)=>{
+      this.title = data['title'];
+    })
+    this.moviesdbService.getSearch(this.title).subscribe(
       (data) => { this.Search = data;
         this.SearchResult = this.Search.results.map(e => { e.poster_path = "https://image.tmdb.org/t/p/w500" + e.poster_path; return e })
         console.log(this.SearchResult);

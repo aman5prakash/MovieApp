@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 import { MoviesdbService } from '../moviesdb.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,17 +13,16 @@ export class NavBarComponent implements OnInit {
   @Input() movie:string;
   Search: any;
 
-  constructor(private moviesdbService: MoviesdbService) {
+  constructor(private router:Router) {
   }
 
   handleSearch() {
-    // make a service call with this searchTerm passed in.
-    this.moviesdbService.getSearch(this.movie).subscribe(
-      (data) => {
-        console.log(this.movie);
-        console.log(data);
-      }
-    )}
+    console.log(this.movie);
+    this.router.navigate(['/Search'],{
+      queryParams:{
+        "title":this.movie
+      }});
+  }
 
   ngOnInit() {
     
