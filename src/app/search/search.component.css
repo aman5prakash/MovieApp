@@ -2,8 +2,38 @@
     display: inline-flex;
     flex: 1;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
-.card{
-    margin: 0.8rem;
+.card {
+    margin: 0.9rem;
+    width: 15rem;
+}
+
+@media(max-width: 425px){
+    .result{
+        display: inline-flex;
+        flex: 1;
+        flex-flow: column wrap;
+        justify-content: center;
+        width: auto;
+    }
+
+    .card{
+        width: auto;
+    }
+}
+
+@media(max-width: 768px){
+    .result{
+        display: inline-flex;
+        flex: 1;
+        flex-flow: row wrap;
+        justify-content: center;
+        width: auto;    
+    }
+
+    .card{
+        width: 20rem;
+    }
 }
